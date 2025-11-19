@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/anaray388@apac.comcast.com/Documents/AI Churn Prevention
+  /mlruns/909826495085696126/b88ae7f8fd8d4264a814e3685e2f316b/artifacts
+end_time: 1763398563006
+entry_point_name: ''
+experiment_id: '909826495085696126'
+lifecycle_stage: active
+run_id: b88ae7f8fd8d4264a814e3685e2f316b
+run_name: victorious-ape-735
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1763398557905
+status: 3
+tags: []
+user_id: anaray388@apac.comcast.com

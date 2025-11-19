@@ -1,0 +1,93 @@
+services:
+  jupyter:
+    container_name: churn_jupyter
+    image: jupyter/base-notebook:latest
+    restart: always
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./Notebooks:/home/jovyan/work/notebooks:rw
+      - ./src:/home/jovyan/work/src:rw
+      - ./Data:/home/jovyan/work/Data:rw
+    environment:
+      JUPYTER_ENABLE_LAB: "yes"
+    command: >
+      start-notebook.sh
+      --NotebookApp.token=''
+      --NotebookApp.password=''
+
+  mlflow:
+    container_name: churn_mlflow
+    build:
+      context: .
+      dockerfile: Dockerfile.mlflow
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      MLFLOW_BACKEND_URI: "sqlite:///mlflow.db"
+      MLFLOW_ARTIFACT_URI: "./mlruns"
+    volumes:
+      - ./mlruns:/mlflow/mlruns:rw
+      - ./mlflow.db:/mlflow/mlflow.db:rw
+      - ./src:/mlflow/src:rw
+    command: >
+      mlflow server
+      --backend-store-uri sqlite:///mlflow.db
+      --default-artifact-root /mlflow/mlruns
+      --host 0.0.0.0
+      --port 5000
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+  streamlit:
+    container_name: churn_streamlit
+    build:
+      context: .
+      dockerfile: Dockerfile.streamlit
+    restart: always
+    ports:
+      - "8501:8501"
+    environment:
+      - MODEL_PATH=/app/Data/processed/model.pkl
+      - VECTORIZER_PATH=/app/Data/processed/tfidf.pkl
+      - DATA_PATH=/app/Data/processed/reviews_raw.parquet
+      - STREAMLIT_SERVER_HEADLESS=true
+      - STREAMLIT_BROWSER_GATHER_USAGE_STATS=false
+    volumes:
+      - ./mlruns:/app/mlruns:rw
+      - ./Data:/app/Data:rw
+      - ./src:/app/src:rw
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  prevention:
+    container_name: churn_prevention
+    build:
+      context: .
+      dockerfile: Dockerfile.streamlit
+    restart: always
+    ports:
+      - "8502:8501"
+    environment:
+      - MODEL_PATH=/app/Data/processed/model.pkl
+      - VECTORIZER_PATH=/app/Data/processed/tfidf.pkl
+      - STREAMLIT_SERVER_HEADLESS=true
+      - STREAMLIT_BROWSER_GATHER_USAGE_STATS=false
+    volumes:
+      - ./Data:/app/Data:rw
+      - ./src:/app/src:rw
+    command: streamlit run streamlit_app_prevention.py
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s

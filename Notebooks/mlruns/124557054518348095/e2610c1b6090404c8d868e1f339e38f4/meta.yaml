@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/anaray388@apac.comcast.com/Documents/AI Churn Prevention
+  /Notebooks/mlruns/124557054518348095/e2610c1b6090404c8d868e1f339e38f4/artifacts
+end_time: 1763401336466
+entry_point_name: ''
+experiment_id: '124557054518348095'
+lifecycle_stage: active
+run_id: e2610c1b6090404c8d868e1f339e38f4
+run_name: orderly-dog-185
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1763401332972
+status: 4
+tags: []
+user_id: anaray388@apac.comcast.com

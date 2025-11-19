@@ -1,0 +1,27 @@
+{
+  "period_days": 30,
+  "total_interventions": 4,
+  "completed_interventions": 1,
+  "retention_rate": 1.0,
+  "total_cost": 95.0,
+  "total_revenue_saved": 3600.0,
+  "roi": 3689.473684210526,
+  "avg_cost_per_intervention": 95.0,
+  "avg_revenue_saved_per_retention": 3600.0,
+  "success_rate_by_type": {
+    "retention_call": {
+      "success_rate": 1.0,
+      "count": 1,
+      "retained": 1
+    }
+  },
+  "interventions_by_priority": {
+    "high": 2,
+    "critical": 1,
+    "medium": 1
+  },
+  "interventions_by_channel": {
+    "call": 3,
+    "email": 1
+  }
+}

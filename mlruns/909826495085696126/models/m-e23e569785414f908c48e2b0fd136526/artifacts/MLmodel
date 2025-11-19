@@ -1,0 +1,23 @@
+artifact_path: file:///Users/anaray388@apac.comcast.com/Documents/AI Churn Prevention
+  /mlruns/909826495085696126/models/m-e23e569785414f908c48e2b0fd136526/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.8
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.2
+mlflow_version: 3.6.0
+model_id: m-e23e569785414f908c48e2b0fd136526
+model_size_bytes: 40720
+model_uuid: m-e23e569785414f908c48e2b0fd136526
+prompts: null
+run_id: b88ae7f8fd8d4264a814e3685e2f316b
+utc_time_created: '2025-11-17 16:55:57.986612'

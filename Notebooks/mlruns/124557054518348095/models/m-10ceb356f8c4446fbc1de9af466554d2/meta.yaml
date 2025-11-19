@@ -1,0 +1,11 @@
+artifact_location: file:///Users/anaray388@apac.comcast.com/Documents/AI Churn Prevention
+  /Notebooks/mlruns/124557054518348095/models/m-10ceb356f8c4446fbc1de9af466554d2/artifacts
+creation_timestamp: 1763401358633
+experiment_id: '124557054518348095'
+last_updated_timestamp: 1763401361745
+model_id: m-10ceb356f8c4446fbc1de9af466554d2
+model_type: null
+name: model
+source_run_id: 2240b55f8b1d48a29400f2e940b602af
+status: 2
+status_message: null

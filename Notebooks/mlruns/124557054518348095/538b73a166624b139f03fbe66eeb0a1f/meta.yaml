@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/anaray388@apac.comcast.com/Documents/AI Churn Prevention
+  /Notebooks/mlruns/124557054518348095/538b73a166624b139f03fbe66eeb0a1f/artifacts
+end_time: 1763401320545
+entry_point_name: ''
+experiment_id: '124557054518348095'
+lifecycle_stage: active
+run_id: 538b73a166624b139f03fbe66eeb0a1f
+run_name: popular-colt-408
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1763401317466
+status: 4
+tags: []
+user_id: anaray388@apac.comcast.com
